@@ -21,11 +21,15 @@ function start(){
     
     tournament.games.forEach(match => {
         match.scorePerMatch(getRandom(), getRandom())
-        console.log(match)
+        console.table(match)
         console.log('---------')
     })
+
+    tournament.setWinner()
+    tournament.setLoser()
+
     console.log('\n','end')
-     console.log(tournament)
+    console.table(tournament)
 }
 
 start()

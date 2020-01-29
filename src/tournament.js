@@ -1,4 +1,4 @@
-var Match = require('./match.js')
+let Match = require('./match.js')
 
 class Tournament {
     constructor(){
@@ -26,6 +26,29 @@ class Tournament {
             }
         }
     }
+
+    setWinner(){
+       if (this.setWinners().length > 1) { 
+           console.log("multiple winners") 
+        } else { this.winner =  this.setWinners()[0].name }
+    }
+
+    setLoser(){
+        if (this.setLosers().length > 1) { 
+            console.log("multiple losers") 
+        } else { this.loser =  this.setLosers()[0].name }
+    }
+
+    setWinners(){
+        let highest = Math.max(...this.teams.map(team => team.points)); 
+        return this.teams.filter(team => team.points === highest); 
+    }
+
+    setLosers(){
+        let smallest = Math.min(...this.teams.map(team => team.points)); 
+        return this.teams.filter(team => team.points === smallest); 
+    }
+
 }
 
 module.exports = Tournament

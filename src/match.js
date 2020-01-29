@@ -25,6 +25,8 @@ class Match {
             this.away.updateScoreDraw(goalsAway)
         }
     }
+
+    
 }
 
 module.exports = Match
